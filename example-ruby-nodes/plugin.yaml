@@ -1,0 +1,29 @@
+name: Example Ruby Script Model Source
+version: 1.0
+rundeckPluginVersion: 1.0
+author: alexh
+date: 05/28/14
+providers:
+    - name: RubyNodes
+      service: ResourceModelSource
+      plugin-type: script
+      script-interpreter: ruby
+      script-file: nodes.rb
+      script-args: ${config.account} ${config.url} ${config.region}
+      resource-format: resourceyaml
+      config:
+        - type: Integer
+          name: account
+          title: Account
+          description: Enter the account number.
+        - type: String
+          name: url
+          title: URL
+          description: Enter the URL to the inventory service.
+        - type: FreeSelect
+          name: region
+          title: Region
+          description: Select a region.
+          required: true
+          default: east
+          values: east,north,south,west
